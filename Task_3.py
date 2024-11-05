@@ -11,7 +11,8 @@ class MatrixManager():
         
     def get_is_inverse(self):
         result = np.dot(self.array_x, self.array_z)
-        return np.allclose(result, np.identity(3))
+        self.is_inverse = np.allclose(result, np.identity(3))
+        return self.is_inverse
     
     def get_matrix_from_file(self):
         y=[]
@@ -40,7 +41,7 @@ z=np.linalg.inv(x)
 
 ## Task 3.1
 matrixmanager = MatrixManager(x,z, 'data.txt')
-print("Z is inverse : ", matrixmanager.get_is_inverse())
+print("Z is inverse : ", matrixmanager.is_inverse)
 
 ## Task 3.2 
 matrixmanager.get_matrix_from_file()
